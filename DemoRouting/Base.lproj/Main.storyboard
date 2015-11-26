@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="76h-xN-d3u">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--Main View-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VMZ-ow-50V">
+                                <rect key="frame" x="20" y="20" width="490" height="75"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input start point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pnJ-2W-NFq" userLabel="Start Point Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="490" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="tiB-EU-3TT"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input end point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7A-vZ-q0f" userLabel="End Point Text Field">
+                                        <rect key="frame" x="0.0" y="45" width="490" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="c5v-hy-Uvs"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="6i2-0T-2I7"/>
+                                    <constraint firstAttribute="height" constant="75" id="Bvw-2q-UkL"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6i2-0T-2I7"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-KR-BA8" userLabel="Route Button">
+                                <rect key="frame" x="530" y="42" width="50" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BfL-vF-6vK"/>
+                                    <constraint firstAttribute="width" constant="50" id="Bis-hy-tcb"/>
+                                    <constraint firstAttribute="width" constant="50" id="X9P-h9-Nrc"/>
+                                    <constraint firstAttribute="height" constant="30" id="juO-JV-qR1"/>
+                                </constraints>
+                                <state key="normal" title="Route"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bis-hy-tcb"/>
+                                        <exclude reference="juO-JV-qR1"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="startRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhk-pX-0ZL"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MPq-26-Gu0" userLabel="Map View">
+                                <rect key="frame" x="0.0" y="115" width="600" height="421"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZSd-dE-Qei"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t5e-KR-BA8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="21N-rS-bwR"/>
+                            <constraint firstItem="t5e-KR-BA8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="19" id="2Bi-8U-CGR"/>
+                            <constraint firstItem="VMZ-ow-50V" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="3Fc-uw-ydQ"/>
+                            <constraint firstItem="VMZ-ow-50V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4em-ng-2B0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MPq-26-Gu0" secondAttribute="bottom" id="4yA-8j-dJ5"/>
+                            <constraint firstItem="VMZ-ow-50V" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8C1-Cj-edS"/>
+                            <constraint firstItem="t5e-KR-BA8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="EAS-Qd-1UJ"/>
+                            <constraint firstItem="t5e-KR-BA8" firstAttribute="leading" secondItem="VMZ-ow-50V" secondAttribute="trailing" constant="20" id="GfT-qt-MYL"/>
+                            <constraint firstItem="MPq-26-Gu0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P2S-Tf-ONu"/>
+                            <constraint firstItem="MPq-26-Gu0" firstAttribute="top" secondItem="VMZ-ow-50V" secondAttribute="bottom" constant="20" id="PyP-0d-l68"/>
+                            <constraint firstAttribute="trailing" secondItem="t5e-KR-BA8" secondAttribute="trailing" constant="20" id="VQs-ic-RTw"/>
+                            <constraint firstAttribute="trailing" secondItem="t5e-KR-BA8" secondAttribute="trailing" constant="20" id="a6j-6X-Ixp"/>
+                            <constraint firstItem="t5e-KR-BA8" firstAttribute="leading" secondItem="VMZ-ow-50V" secondAttribute="trailing" constant="20" id="lOy-Qk-nyL"/>
+                            <constraint firstItem="VMZ-ow-50V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="uHw-LE-7oT"/>
+                            <constraint firstAttribute="trailing" secondItem="MPq-26-Gu0" secondAttribute="trailing" id="zwP-T6-lsj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8C1-Cj-edS"/>
+                                <exclude reference="uHw-LE-7oT"/>
+                                <exclude reference="21N-rS-bwR"/>
+                                <exclude reference="2Bi-8U-CGR"/>
+                                <exclude reference="GfT-qt-MYL"/>
+                                <exclude reference="VQs-ic-RTw"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Main View" id="2c5-OR-TsB"/>
+                    <connections>
+                        <outlet property="endPointTf" destination="t7A-vZ-q0f" id="yYl-HY-e2z"/>
+                        <outlet property="mapView" destination="MPq-26-Gu0" id="ZiY-Iz-A5j"/>
+                        <outlet property="startPointTf" destination="pnJ-2W-NFq" id="HYW-s4-bx1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="377"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yXe-Dq-Dqc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="76h-xN-d3u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pCn-zZ-cFL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Q4m-HD-FLl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4e-lH-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="377"/>
+        </scene>
+    </scenes>
+</document>
