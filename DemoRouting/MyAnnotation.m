@@ -11,31 +11,11 @@
 @implementation MyAnnotation
 
 @synthesize coordinate;
+@synthesize title;
+@synthesize subtitle;
 
-- (NSString *)subtitle {
-    return nil;
+- (void)changeCoordinate:(CLLocationCoordinate2D)_coordinate {
+    self.coordinate = _coordinate;
 }
-
-- (NSString *)title {
-    return nil;
-}
-
-- (id)initWithCoordinate:(CLLocationCoordinate2D)coord {
-    coordinate = coord;
-    return self;
-}
-
-- (CLLocationCoordinate2D)coord
-{
-    return coordinate;
-}
-
-- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
-    coordinate = newCoordinate;
-    
-    //if (self.delegate respondsToSelector:@selector(mapAnnotationCoordinateHaveChanged))
-        // [self.delegate performSelector(@selector(mapAnnotationCoordinateHaveChanged))];
-}
-
 
 @end

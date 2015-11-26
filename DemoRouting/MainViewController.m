@@ -40,7 +40,7 @@
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleGesture:)];
-    lpgr.minimumPressDuration = 2.0;  //user must press for 2 seconds
+    lpgr.minimumPressDuration = 0.5;  //user must press for 0.5 second
     [self.mapView addGestureRecognizer:lpgr];
     
     //    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]
@@ -177,7 +177,7 @@
             CLLocationCoordinate2D coordinate = placemark.location.coordinate;
             
             // Add an annotation
-            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+            MyAnnotation *point = [[MyAnnotation alloc] init];
             point.coordinate = coordinate;
             
             if (tag == 100) {
@@ -215,9 +215,9 @@
     }];
 }
 
-- (void)addAnnotation:(MKPointAnnotation*)annotation withTag:(NSInteger)tag {
+- (void)addAnnotation:(MyAnnotation *)annotation withTag:(NSInteger)tag {
     NSMutableArray *annotationsList = [self.mapView.annotations mutableCopy];
-    for (MKPointAnnotation *pa in annotationsList) {
+    for (MyAnnotation *pa in annotationsList) {
         if ( (tag == 100 && [pa.title isEqualToString:@"Start Point"]) || (tag == 101 && [pa.title isEqualToString:@"End Point"]))
             [self.mapView removeAnnotation:pa];
     }
@@ -239,7 +239,7 @@
     CLLocation *location = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
     [self getAddressFromLocation:location withTag:101];
     
-    MKPointAnnotation *pa = [[MKPointAnnotation alloc] init];
+    MyAnnotation *pa = [[MyAnnotation alloc] init];
     pa.coordinate = touchMapCoordinate;
     pa.title = @"End Point";
     [self addAnnotation:pa withTag:101];
@@ -289,7 +289,7 @@
         CLLocationCoordinate2D newCoordinate = [self.mapView convertPoint:dropPoint toCoordinateFromView:annotationView.superview];
         
         CLLocation *location = [[CLLocation alloc] initWithLatitude:newCoordinate.latitude longitude:newCoordinate.longitude];
-        if ([((MKPointAnnotation *)(annotationView.annotation)).title isEqualToString:@"Start Point"]) {
+        if ([((MyAnnotation *)(annotationView.annotation)).title isEqualToString:@"Start Point"]) {
             [self getAddressFromLocation:location withTag:100];
         } else {
             [self getAddressFromLocation:location withTag:101];
