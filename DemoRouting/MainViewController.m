@@ -30,11 +30,11 @@
     // start location
     [self startLocation];
     
-    MKUserLocation *userLocation = self.mapView.userLocation;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate,
-                                                                   20000, 20000);
+    //    MKUserLocation *userLocation = self.mapView.userLocation;
+    //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate,
+    //                                                                   20000, 20000);
     self.mapView.showsUserLocation = YES;
-    [self.mapView setRegion:region animated:NO];
+    // [self.mapView setRegion:region animated:NO];
     [self.mapView setZoomEnabled: YES];
     [self.mapView setScrollEnabled: YES];
     
@@ -42,12 +42,6 @@
                                           initWithTarget:self action:@selector(handleGesture:)];
     lpgr.minimumPressDuration = 0.5;  //user must press for 0.5 second
     [self.mapView addGestureRecognizer:lpgr];
-    
-    //    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]
-    //                                   initWithTarget:self action:@selector(handleGesture:)];
-    //    tgr.numberOfTapsRequired = 2;
-    //    tgr.numberOfTouchesRequired = 1;
-    //    [self.mapView addGestureRecognizer:tgr];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,8 +65,7 @@
         MKPlacemark *endPlacemark = [[MKPlacemark alloc] initWithCoordinate:endcoordinate addressDictionary:nil];
         MKMapItem *endMapItem = [[MKMapItem alloc] initWithPlacemark:endPlacemark];
         [directionsRequest setDestination:endMapItem];
-        
-        // directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
+        directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
         directionsRequest.requestsAlternateRoutes = YES;
         MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
         [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
