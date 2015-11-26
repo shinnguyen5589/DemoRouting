@@ -14,11 +14,17 @@
 
 @interface MainViewController : UIViewController <UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 
+# pragma mark - IBOutlets
+
 @property (weak, nonatomic) IBOutlet UITextField *startPointTf;
 @property (weak, nonatomic) IBOutlet UITextField *endPointTf;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+# pragma mark - IBAAtions
+
 - (IBAction)startRoute:(UIButton *)sender;
+
+# pragma mark - Class Properties
 
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) CLLocation *startPoint;

@@ -330,18 +330,18 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    NSLog(@"aaa");
+    NSLog(@"value changed");
     // CGPoint position = myAnnotationView.center;
     //... here take  myAnnotationView.centerOffset into consideration to get the correct coordinate
     // CLLocationCoordinate2D newCoordinate = [self.mapView convertPoint:position toCoordinateFromView:self.superview];
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
-    NSLog(@"bbb");
+    NSLog(@"regionWillChangeAnimated");
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    NSLog(@"ccc");
+    NSLog(@"regionDidChangeAnimated");
 }
 
 # pragma mark - show alert view methods
