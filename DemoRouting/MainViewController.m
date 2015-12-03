@@ -16,6 +16,8 @@
     MKRoute *routeDetails;
 }
 
+# pragma mark - UIViewController life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -219,7 +221,7 @@
     [self.mapView addAnnotation:annotation];
 }
 
-# pragma mark - UILongPressGestureRecognizer method
+# pragma mark - UILongPressGestureRecognizer methods
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -287,8 +289,9 @@
         } else {
             [self getAddressFromLocation:location withTag:101];
         }
-        [annotationView.annotation setCoordinate:newCoordinate];
         
+        [self.mapView removeOverlays:self.mapView.overlays];
+        [annotationView.annotation setCoordinate:newCoordinate];
     } else if (newState == MKAnnotationViewDragStateDragging) {
         NSLog(@"xxxx is %f", annotationView.center.x);
         NSLog(@"yyyy is %f", annotationView.center.y);
